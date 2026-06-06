@@ -1,4 +1,5 @@
 # Code fait par Alain Chidiac
+# Code made by Alain Chidiac
 # Choix de la langue et de la convertion
 # Language and conversion choice
 langue = input('0 -> English 1  -> Français')
@@ -14,15 +15,17 @@ run = True
 # Conversion d'un nombre à base 10 à un binaire
 # Convertion of a decimal into a binary
 def dec_bin():
-    bin = ""
+    bin = "" # Varible that will contain the binary number / La variable qui possèderat la valeur dunombre binaire
     if langue == "French":
-        dec = int(input("Met le nombre en base 10 : "))
+        dec = int(input("Met le nombre en base 10 : ")) # Variable qui possède la valeur du nombre décimal
     else :
-        dec = int(input("Put the decimal number : "))
-    while dec >= 1 :
+        dec = int(input("Put the decimal number : ")) #  Variable that contains the value of the dcimal number
+    while dec >= 1 : # Repeats euclidien divisions until the is equal to 0 / Répétition de division euclidienne jusqu'à que le nombre decimal soit null
         modulo = dec % 2
         dec = dec // 2
-        if modulo == 1 :
+        # Rajoute le reste de la division euclidienne dans la variable "modulo" 
+        # Adds the rest of the euclidien division in the "modulo" variable
+        if modulo == 1 : 
             bin = "1" + bin
         else :
             bin = "0" + bin
