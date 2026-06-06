@@ -13,7 +13,7 @@ while dec >= 1 :
 print(bin)'''
 # Conversion d'un nombre en base 10 à un hexadécimale
 # Convertion of a decimal into an hexadecimal
-"""sup = ("A","B","C","D","E","F")
+"sup = ("A","B","C","D","E","F") # We define the possible values that are over nine
 hex = ""
 dec = int(input("Met le nombre en base 10 : "))
 while dec >= 1 :
