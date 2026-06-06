@@ -80,7 +80,7 @@ def hex_bin():
             n = 0
             bin_3 = ""
             while sup[n] != t :
-                n += 0
+                n += 1
             dec = 10 + n
             while dec >= 1 :
                 modulo = dec % 2
@@ -127,7 +127,7 @@ def hex_dec():
             n = 0
             diz = 10
             while sup[n] != t :
-                n += 0
+                n += 1
                 diz += n
             num = int(diz)*16**puis
         puis -= 1
