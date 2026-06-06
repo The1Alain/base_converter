@@ -1,5 +1,6 @@
 # Code fait par Alain Chidiac
 # Conversion d'un nombre à base 10 à un binaire
+# Convertion of a decimal into a binary
 '''bin = ""
 dec = int(input("Met le nombre en base 10 : "))
 while dec >= 1 :
@@ -11,6 +12,7 @@ while dec >= 1 :
         bin = "0" + bin
 print(bin)'''
 # Conversion d'un nombre en base 10 à un hexadécimale
+# Convertion of a decimal into an hexadecimal
 """sup = ("A","B","C","D","E","F")
 hex = ""
 dec = int(input("Met le nombre en base 10 : "))
@@ -32,6 +34,7 @@ while dec >= 1 :
         hex = str(dec) + hex
 print(hex)"""
 # Conversion d'un nombre hexadécimale à un binaire
+# Conversion of an hexadecimal into a binary
 """hex = input("met un nombre en base 16 : ")
 sup = ("A","B","C","D","E","F")
 bin = ""
@@ -65,6 +68,7 @@ for t in hex :
         bin = bin + bin_3 + " "
 print(bin)"""
 # Conversion d'un nombre binaire à la base 10
+# Convertion of a binary into a decimal
 """dec = 0
 bin = input("Met le nombre binaire : ")
 puis = len(bin) - 1
@@ -78,6 +82,7 @@ for t in bin :
     bin = str(bin)
 print(dec)"""
 # Conversion d'un nombre hexadécimal à la base 10
+# COnvertion of a hexadecimal into a decimal
 """dec = 0
 sup = ("A","B","C","D","E","F")
 hex = input("Met le nombre en base 16 : ")
@@ -97,6 +102,7 @@ for t in hex :
     dec += num
 print(dec)"""
 # Conversion d'un nombre binaire à un hexadécimale
+# Convertion of a binary into an hexadecimal
 """sup = ("F","E","D","C","B","A")
 hex = ""
 n_bit = 0
