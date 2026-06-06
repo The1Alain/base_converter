@@ -4,4 +4,6 @@ I initialy found that the binary conversion process was extremely easy to get wr
 ## How to use script :
 Each converstion contains cotation marks so to convert just remove the cotation marks from the one you wish to do before executing the program.
 ## How it was built :
-The code contains many conditions and exceptions (mostly in the hexadecimal section) that makes it possible to convert the hexadecimal letters into decimal or bianray numbers. There are also many tables that use ranges so for each one detecyed in the binary nomber we can add a power of 2, the length of the table also makes it so that we can easily find the power of 2 that we need by just using len().
+The code contains many conditions and exceptions (mostly in the hexadecimal section) that makes it possible to convert the hexadecimal letters into decimal or bianray numbers. There are also many tables that use ranges so for each one detecyed in the binary nomber we can add a power of 2, the length of the table also makes it so that we can easily find the power of 2 that we need by just using the len() command.
+## Application of the code :
+I said earlier that this code was used to help me train for highschool exams but it can have many more uses, for example it can simply be added to any python script to have a quick binary conversion without needing exterial libraries.
