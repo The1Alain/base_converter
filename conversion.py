@@ -132,11 +132,15 @@ def bin_dec():
         bin = input("Met le nombre binaire : ")
     else :
         bin = input("Put the binary number : ")
+    # We define the power
+    # On definit la puissance
     puis = len(bin) - 1
     # We go through each bit and multipli it by a power of 2
     # On part à travers chaque bit et on le multiplie part une puissance de 2
     for t in bin :
         bin = int(bin)
+        # We give a small warning if the number isn't binary
+        # On alert si le nombre n'est pas binaire
         if int(t) > 1 :
             print("Le nombre n'est pas binaire.")
         num = int(t)*2**puis
@@ -153,10 +157,18 @@ def hex_dec():
         hex = input("Met le nombre en base 16 : ")
     else :
         hex = input("Put the hexadecimal number : ")
+    # We define the power
+    # On définit la puissance 
     puis = len(hex) - 1
+    # We go throught each digit and multiply it by a power of 16
+    # On part à travers chaque valeur et on le multiplie par une puissance de 16
     for t in hex :
+        # If the digt is below nine we simply multiply it by a power of 16
+        # Si le chiffre est inférieur à 9 on le multiplie simplement par une puissance de 16
         try :
             num = int(t)*16**puis
+        # If the number is over 10 we convert it like we did previously
+        # Si le chiffre est supérieur à 10 ont le convertit en décimal comme dans les codes précedents
         except :
             num = 0
             n = 0
@@ -203,6 +215,8 @@ def bin_hex():
             let = 15 - dec
             hex = hex + sup[let]
     print(hex)
+# Fonction qui gère le choix de convertion
+# Foncion da deals with the conversion choice
 def conv():
     if conve == '0':
         dec_bin()
