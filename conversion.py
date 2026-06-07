@@ -20,7 +20,9 @@ def dec_bin():
         dec = int(input("Met le nombre en base 10 : ")) # Variable qui possède la valeur du nombre décimal
     else :
         dec = int(input("Put the decimal number : ")) #  Variable that contains the value of the dcimal number
-    while dec >= 1 : # Repeats euclidien divisions until the is equal to 0 / Répétition de division euclidienne jusqu'à que le nombre decimal soit null
+    # Repeats euclidien divisions until the decimal number is equal to 0
+    # Répétition de division euclidienne jusqu'à que le nombre decimal soit null    
+    while dec >= 1 : 
         modulo = dec % 2
         dec = dec // 2
         # Rajoute le reste de la division euclidienne dans la variable "modulo" 
@@ -33,26 +35,36 @@ def dec_bin():
 # Conversion d'un nombre en base 10 à un hexadécimale
 # Convertion of a decimal into an hexadecimal
 def dec_hex():
-    sup = ("A","B","C","D","E","F") # We define the possible values that are over nine
-    hex = ""
+    sup = ("A","B","C","D","E","F") # We define the possible values that are over nine / On définit les valeurs au dessus de 9
+    hex = "" 
     if langue == "French":
         dec = int(input("Met le nombre en base 10 : "))
     else :
         dec = int(input("Put the decimal number : "))
+    # Repeats euclidien divisions by 16 until the decimal number is equal to 0
+    # Répétition de division euclidiennepar 16 jusqu'à que le nombre decimal soit null
     while dec >= 1 :
+        # Rajoute le reste de la division euclidienne dans la variable "modulo" 
+        # Adds the rest of the euclidien division in the "modulo" variable
         modulo = dec % 16
         dec = dec // 16
         if modulo != 0:
             if modulo < 10 :
                 hex = str(modulo) + hex
+            # If the rest of the euclidien division is over 9 we take a letter from the "sup" tuple
+            # Si le reste de la division euclidienne est au dessus de 9 on prend une lettre du tuple "sup"
             else :
                 n = 10
                 n_tuple = 0
+                # We go through each letter of the tuple until we find the correct one
+                # On part à travers chaque valeur du tuple jusqu'à qu'on trouve la bonne
                 while n != modulo :
                     n += 1
                     n_tuple += 1
                 fin = sup[n_tuple]
                 hex = str(fin) + hex
+        # We add the found value
+        # On rajoute la valeur trouvée
         else :
             hex = str(dec) + hex
     print(hex)
@@ -63,12 +75,20 @@ def hex_bin():
         hex = input("Met un nombre en base 16 : ")
     else :
         hex = input("Put the hexadecimal number : ")
+    # We define the values over nin
+    # On définit les valeurs au dessus de neuf
     sup = ("A","B","C","D","E","F")
     bin = ""
     for t in hex :
+        # Try except is used here since if the number contains a letter the program would crash
+        # Try except est utilisé ici plus que si le nombre conetein une lettre le programme pourrait se cassé. 
         try :
             t = int(t)
+            # Temporary variable to add an extra binary nmber
+            # Variable temporaire utilisée pour rajouté un nombre binaire
             bin_2 = ""
+            # We do the successive euclidien divisionon each digit one by one
+            # On fait les division euclidienne succèssive de chaque chiffre un par un 
             while t >= 1 :
                 modulo = t % 2
                 t = t // 2
@@ -76,6 +96,7 @@ def hex_bin():
                     bin_2 = "1" + bin_2
                 else :
                     bin_2 = "0" + bin_2
+            # Adds zeros to numbers that have less than 4 bits
             while len(bin_2) < 4 :
                 bin_2 = "0" + bin_2
             bin = bin + bin_2 + " "
