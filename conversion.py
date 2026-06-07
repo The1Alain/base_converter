@@ -97,15 +97,23 @@ def hex_bin():
                 else :
                     bin_2 = "0" + bin_2
             # Adds zeros to numbers that have less than 4 bits
+            # Rajoute des zeros à des nombre qui ont moin que 4 bits
             while len(bin_2) < 4 :
                 bin_2 = "0" + bin_2
             bin = bin + bin_2 + " "
+        # In case the number contains a lettre
+        # Dans le cas que le nombre possède une lettre
         except :
+            # We convert the letter into a decimal 
             n = 0
             bin_3 = ""
+            # On part à travers chaque lettre du tuple jusqu'à qu'on trouve la même
+            # We go trough each letter of the tuple until we find one that matches 
             while sup[n] != t :
                 n += 1
             dec = 10 + n
+            # On convertit le nombre décimal trouvé en un binaire 
+            # We convert the found decimal nomber into a binary number
             while dec >= 1 :
                 modulo = dec % 2
                 dec = dec // 2
@@ -113,6 +121,7 @@ def hex_bin():
                     bin_3 = "1" + bin_3
                 else :
                     bin_3 = "0" + bin_3
+            # On rajoute le nombre binaire trouvé
             bin = bin + bin_3 + " "
     print(bin)
 # Conversion d'un nombre binaire à la base 10
