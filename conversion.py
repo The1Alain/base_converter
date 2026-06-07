@@ -133,6 +133,8 @@ def bin_dec():
     else :
         bin = input("Put the binary number : ")
     puis = len(bin) - 1
+    # We go through each bit and multipli it by a power of 2
+    # On part à travers chaque bit et on le multiplie part une puissance de 2
     for t in bin :
         bin = int(bin)
         if int(t) > 1 :
