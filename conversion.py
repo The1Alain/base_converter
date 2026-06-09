@@ -185,6 +185,8 @@ def hex_dec():
 def bin_hex():
     sup = ("F","E","D","C","B","A")
     hex = ""
+    # Variable qui possède le nombre de bit
+    # Variable that contains the amount of bits
     n_bit = 0
     if langue == "French":
         bin = input("Met le nombre binaire : ")
@@ -192,10 +194,14 @@ def bin_hex():
         bin = input("Put the binary number : ")
     for t in bin :
         n_bit += 1
+    # Rajoute des 0 pour que nous puission regroupé les chiffres en groupe de 4 bits
+    # Adds 0 so that we can group up the digits by 4 bits
     if n_bit % 4 != 0 :
         n_0 = 4 - n_bit % 4
         for i in range(n_0) :
             bin = "0" + bin
+    # 
+    # 
     for t in range (0, len(bin), 4) :
         bits = bin[t : t+4]
         a, b, c, d = bits
