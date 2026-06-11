@@ -2,11 +2,14 @@
 # Code made by Alain Chidiac
 # Choix de la langue et de la convertion
 # Language and conversion choice
-langue = input('0 -> English 1  -> Français')
-if langue == '1':
-    langue = "French"
-else :
-    langue = "English"
+def lang_choice() :
+    langue = input('0 -> English 1  -> Français')
+    if langue == '1':
+        langue = "French"
+    elif langue == '0'
+        langie = "English"
+    else :
+        lang_choice()
 if langue == "French":
     conve = input("0  -> Décimale à binaire | 1 -> Décimale à hexadécimale | 2 -> Héxadécimale à binaire | 3 -> Binaire à décimale | 4 -> Héxadécimale à décimale | 5 -> Binaire à Héxadécimale")
 elif langue == "English":
@@ -200,21 +203,27 @@ def bin_hex():
         n_0 = 4 - n_bit % 4
         for i in range(n_0) :
             bin = "0" + bin
-    # 
-    # 
+    # Nous convertissons en groupes de 4 bits
+    # We convert by groups of 4 bits
     for t in range (0, len(bin), 4) :
         bits = bin[t : t+4]
         a, b, c, d = bits
         bin_temp = a + b + c + d
         dec = 0
         puis = len(bin_temp) - 1
+        # On convertit le groupe de
+        # We convert the group of 4 bits
         for t in bin_temp :
+            # On envoi un message si le nombre n'est pas binaire
+            # We send a message if the number isn't binary
             if int(t) > 1 :
                 print("Le nombre n'est pas binaire.")
             num = int(t)*2**puis
             dec += num
             puis -= 1
             bin_temp = str(bin_temp)
+        # On rajoute la valeur trouvée
+        # We add the found value
         if dec < 10 :
             hex = hex + str(dec)
         else :
@@ -236,5 +245,7 @@ def conv():
         hex_dec()
     elif conve == '5':
         bin_hex()
+    else :
+        choice()
 while run == True :
     conv()
