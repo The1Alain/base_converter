@@ -47,39 +47,42 @@ def dec_bin():
 # Conversion d'un nombre en base 10 à un hexadécimale
 # Convertion of a decimal into an hexadecimal
 def dec_hex():
-    sup = ("A","B","C","D","E","F") # We define the possible values that are over nine / On définit les valeurs au dessus de 9
-    hex = ""
-    if langue == "French":
-        dec = int(input("Met le nombre en base 10 : "))
-    else :
-        dec = int(input("Put the decimal number : "))
-    # Repeats euclidien divisions by 16 until the decimal number is equal to 0
-    # Répétition de division euclidiennepar 16 jusqu'à que le nombre decimal soit null
-    while dec >= 1 :
-        # Rajoute le reste de la division euclidienne dans la variable "modulo"
-        # Adds the rest of the euclidien division in the "modulo" variable
-        modulo = dec % 16
-        dec = dec // 16
-        if modulo != 0:
-            if modulo < 10 :
-                hex = str(modulo) + hex
-            # If the rest of the euclidien division is over 9 we take a letter from the "sup" tuple
-            # Si le reste de la division euclidienne est au dessus de 9 on prend une lettre du tuple "sup"
-            else :
-                n = 10
-                n_tuple = 0
-                # We go through each letter of the tuple until we find the correct one
-                # On part à travers chaque valeur du tuple jusqu'à qu'on trouve la bonne
-                while n != modulo :
-                    n += 1
-                    n_tuple += 1
-                fin = sup[n_tuple]
-                hex = str(fin) + hex
-        # We add the found value
-        # On rajoute la valeur trouvée
+    try :
+        sup = ("A","B","C","D","E","F") # We define the possible values that are over nine / On définit les valeurs au dessus de 9
+        hex = ""
+        if langue == "French":
+            dec = int(input("Met le nombre en base 10 : "))
         else :
-            hex = str(dec) + hex
-    print(hex)
+            dec = int(input("Put the decimal number : "))
+        # Repeats euclidien divisions by 16 until the decimal number is equal to 0
+        # Répétition de division euclidiennepar 16 jusqu'à que le nombre decimal soit null
+        while dec >= 1 :
+            # Rajoute le reste de la division euclidienne dans la variable "modulo"
+            # Adds the rest of the euclidien division in the "modulo" variable
+            modulo = dec % 16
+            dec = dec // 16
+            if modulo != 0:
+                if modulo < 10 :
+                    hex = str(modulo) + hex
+                # If the rest of the euclidien division is over 9 we take a letter from the "sup" tuple
+                # Si le reste de la division euclidienne est au dessus de 9 on prend une lettre du tuple "sup"
+                else :
+                    n = 10
+                    n_tuple = 0
+                    # We go through each letter of the tuple until we find the correct one
+                    # On part à travers chaque valeur du tuple jusqu'à qu'on trouve la bonne
+                    while n != modulo :
+                        n += 1
+                        n_tuple += 1
+                    fin = sup[n_tuple]
+                    hex = str(fin) + hex
+            # We add the found value
+            # On rajoute la valeur trouvée
+            else :
+                hex = str(dec) + hex
+        print(hex)
+    except :
+        conv
 # Conversion d'un nombre hexadécimale à un binaire
 # Conversion of an hexadecimal into a binary
 def hex_bin():
@@ -246,6 +249,9 @@ def conv():
         lang_choice()
     if not conv_picked :
         conv_choice()
+    quit_choice = input('press "Q" to quit')
+    if quit_choice == "Q":
+        quit()
     elif conve == '0':
         dec_bin()
     elif conve == '1':
