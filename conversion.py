@@ -11,7 +11,7 @@ def lang_choice() :
         langue = "French"
         lang_picked = True
     elif langue == '0':
-        langie = "English"
+        langue = "English"
         lang_picked = True
     else :
         lang_choice()
@@ -20,7 +20,7 @@ def conv_choice() :
     if langue == "French":
         conve = input("0  -> Décimale à binaire | 1 -> Décimale à hexadécimale | 2 -> Héxadécimale à binaire | 3 -> Binaire à décimale | 4 -> Héxadécimale à décimale | 5 -> Binaire à Héxadécimale")
         conv_picked = True
-    else :
+    if langue == "English":
         conve = input("0  -> Decimal to binary | 1 -> Decimal to hexadecimal | 2 -> Hexadecimal to binary | 3 -> Binary to decimal | 4 -> Hexadecimal to decimal | 5 -> Binary to Hexadecimal")
         conv_picked = True
 run = True
