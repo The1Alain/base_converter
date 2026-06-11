@@ -2,18 +2,27 @@
 # Code made by Alain Chidiac
 # Choix de la langue et de la convertion
 # Language and conversion choice
+lang_picked = False
+conv_picked = False
 def lang_choice() :
-    langue = input('0 -> English 1  -> Français')
+    global langue, lang_picked
+    langue = input('0 -> English  |  1  -> Français')
     if langue == '1':
         langue = "French"
-    elif langue == '0'
+        lang_picked = True
+    elif langue == '0':
         langie = "English"
+        lang_picked = True
     else :
         lang_choice()
-if langue == "French":
-    conve = input("0  -> Décimale à binaire | 1 -> Décimale à hexadécimale | 2 -> Héxadécimale à binaire | 3 -> Binaire à décimale | 4 -> Héxadécimale à décimale | 5 -> Binaire à Héxadécimale")
-elif langue == "English":
-    conve = input("0  -> Decimal to binary | 1 -> Decimal to hexadecimal | 2 -> Hexadecimal to binary | 3 -> Binary to decimal | 4 -> Hexadecimal to decimal | 5 -> Binary to Hexadecimal")
+def conv_choice() :
+    global conve, conv_picked
+    if langue == "French":
+        conve = input("0  -> Décimale à binaire | 1 -> Décimale à hexadécimale | 2 -> Héxadécimale à binaire | 3 -> Binaire à décimale | 4 -> Héxadécimale à décimale | 5 -> Binaire à Héxadécimale")
+        conv_picked = True
+    else :
+        conve = input("0  -> Decimal to binary | 1 -> Decimal to hexadecimal | 2 -> Hexadecimal to binary | 3 -> Binary to decimal | 4 -> Hexadecimal to decimal | 5 -> Binary to Hexadecimal")
+        conv_picked = True
 run = True
 # Conversion d'un nombre à base 10 à un binaire
 # Convertion of a decimal into a binary
@@ -24,13 +33,13 @@ def dec_bin():
     else :
         dec = int(input("Put the decimal number : ")) #  Variable that contains the value of the dcimal number
     # Repeats euclidien divisions until the decimal number is equal to 0
-    # Répétition de division euclidienne jusqu'à que le nombre decimal soit null    
-    while dec >= 1 : 
+    # Répétition de division euclidienne jusqu'à que le nombre decimal soit null
+    while dec >= 1 :
         modulo = dec % 2
         dec = dec // 2
-        # Rajoute le reste de la division euclidienne dans la variable "modulo" 
+        # Rajoute le reste de la division euclidienne dans la variable "modulo"
         # Adds the rest of the euclidien division in the "modulo" variable
-        if modulo == 1 : 
+        if modulo == 1 :
             bin = "1" + bin
         else :
             bin = "0" + bin
@@ -39,7 +48,7 @@ def dec_bin():
 # Convertion of a decimal into an hexadecimal
 def dec_hex():
     sup = ("A","B","C","D","E","F") # We define the possible values that are over nine / On définit les valeurs au dessus de 9
-    hex = "" 
+    hex = ""
     if langue == "French":
         dec = int(input("Met le nombre en base 10 : "))
     else :
@@ -47,7 +56,7 @@ def dec_hex():
     # Repeats euclidien divisions by 16 until the decimal number is equal to 0
     # Répétition de division euclidiennepar 16 jusqu'à que le nombre decimal soit null
     while dec >= 1 :
-        # Rajoute le reste de la division euclidienne dans la variable "modulo" 
+        # Rajoute le reste de la division euclidienne dans la variable "modulo"
         # Adds the rest of the euclidien division in the "modulo" variable
         modulo = dec % 16
         dec = dec // 16
@@ -84,14 +93,14 @@ def hex_bin():
     bin = ""
     for t in hex :
         # Try except is used here since if the number contains a letter the program would crash
-        # Try except est utilisé ici plus que si le nombre conetein une lettre le programme pourrait se cassé. 
+        # Try except est utilisé ici plus que si le nombre conetein une lettre le programme pourrait se cassé.
         try :
             t = int(t)
             # Temporary variable to add an extra binary nmber
             # Variable temporaire utilisée pour rajouté un nombre binaire
             bin_2 = ""
             # We do the successive euclidien divisionon each digit one by one
-            # On fait les division euclidienne succèssive de chaque chiffre un par un 
+            # On fait les division euclidienne succèssive de chaque chiffre un par un
             while t >= 1 :
                 modulo = t % 2
                 t = t // 2
@@ -107,15 +116,15 @@ def hex_bin():
         # In case the number contains a lettre
         # Dans le cas que le nombre possède une lettre
         except :
-            # We convert the letter into a decimal 
+            # We convert the letter into a decimal
             n = 0
             bin_3 = ""
             # On part à travers chaque lettre du tuple jusqu'à qu'on trouve la même
-            # We go trough each letter of the tuple until we find one that matches 
+            # We go trough each letter of the tuple until we find one that matches
             while sup[n] != t :
                 n += 1
             dec = 10 + n
-            # On convertit le nombre décimal trouvé en un binaire 
+            # On convertit le nombre décimal trouvé en un binaire
             # We convert the found decimal nomber into a binary number
             while dec >= 1 :
                 modulo = dec % 2
@@ -161,7 +170,7 @@ def hex_dec():
     else :
         hex = input("Put the hexadecimal number : ")
     # We define the power
-    # On définit la puissance 
+    # On définit la puissance
     puis = len(hex) - 1
     # We go throught each digit and multiply it by a power of 16
     # On part à travers chaque valeur et on le multiplie par une puissance de 16
@@ -231,9 +240,13 @@ def bin_hex():
             hex = hex + sup[let]
     print(hex)
 # Fonction qui gère le choix de convertion
-# Foncion da deals with the conversion choice
+# Foncion that deals with the conversion choice
 def conv():
-    if conve == '0':
+    if not lang_picked :
+        lang_choice()
+    if not conv_picked :
+        conv_choice()
+    elif conve == '0':
         dec_bin()
     elif conve == '1':
         dec_hex()
@@ -246,6 +259,6 @@ def conv():
     elif conve == '5':
         bin_hex()
     else :
-        choice()
+        conv_choice()
 while run == True :
     conv()
